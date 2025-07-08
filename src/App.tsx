@@ -15,7 +15,7 @@ function App() {
   const [showFileUpload, setShowFileUpload] = useState(false);
   
   const [settings, setSettings] = useState({
-    apiKey: localStorage.getItem('gemini_api_key') || '',
+    apiKey: localStorage.getItem('gemini_api_key') || 'AIzaSyDGm88T2C7hSqscAfkI_VWqRc2Ew5G92kc',
     systemPrompt: localStorage.getItem('system_prompt') || '你是万尺，一个友善、聪明且乐于助人的数字分身。请用中文回答问题，保持自然和亲切的语调。'
   });
   

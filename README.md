@@ -48,7 +48,7 @@ npm run dev
 
 - **前端框架**: React 19 + TypeScript
 - **构建工具**: Vite 7
-- **AI模型**: Google Gemini 2.0 Flash
+- **AI模型**: Google Gemini 2.5 Pro
 - **样式**: 原生CSS + 响应式设计
 - **部署**: GitHub Pages
 
