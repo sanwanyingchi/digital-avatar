@@ -32,8 +32,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ messages, isTyping, avatarImage }) 
               )}
             </div>
             <div className="welcome-text">
-              <h2>你好！我是万尺</h2>
-              <p>我是你的数字分身，很高兴与你对话！有什么我可以帮助你的吗？</p>
+              <h2>万尺</h2>
+              <p>烦闷的时候，我燃烧很多尼古丁，有什么想跟我聊的？</p>
             </div>
           </div>
         ) : (
