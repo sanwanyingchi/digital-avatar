@@ -13,6 +13,9 @@ function App() {
   const [isTyping, setIsTyping] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(false);
+  const [avatarImage, setAvatarImage] = useState<string | undefined>(
+    localStorage.getItem('avatar_image') || undefined
+  );
   
   const [settings, setSettings] = useState({
     apiKey: localStorage.getItem('gemini_api_key') || 'AIzaSyDGm88T2C7hSqscAfkI_VWqRc2Ew5G92kc',
@@ -25,6 +28,23 @@ function App() {
     localStorage.setItem('gemini_api_key', settings.apiKey);
     localStorage.setItem('system_prompt', settings.systemPrompt);
   }, [settings]);
+
+  useEffect(() => {
+    if (avatarImage) {
+      localStorage.setItem('avatar_image', avatarImage);
+    } else {
+      localStorage.removeItem('avatar_image');
+    }
+  }, [avatarImage]);
+
+  const handleAvatarUpload = (file: File) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const result = e.target?.result as string;
+      setAvatarImage(result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const handleSendMessage = async (text: string) => {
     if (!settings.apiKey) {
@@ -86,10 +106,18 @@ function App() {
 
   return (
     <div className="app">
-      <TopMenuBar avatarName="万尺" />
+      <TopMenuBar 
+        avatarName="万尺" 
+        avatarImage={avatarImage}
+        onAvatarUpload={handleAvatarUpload}
+      />
       
       <div className="app-body">
-        <ChatArea messages={messages} isTyping={isTyping} />
+        <ChatArea 
+          messages={messages} 
+          isTyping={isTyping} 
+          avatarImage={avatarImage}
+        />
         <ChatInput onSendMessage={handleSendMessage} disabled={isTyping} />
       </div>
 
