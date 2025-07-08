@@ -14,8 +14,7 @@ import {
   updateSessionWithMessage,
   deleteSession,
   getCurrentSessionId,
-  setCurrentSessionId,
-  generateSessionTitle
+  setCurrentSessionId
 } from './services/sessionManager';
 import type { Message, Session, SessionSummary } from './types';
 
