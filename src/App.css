@@ -107,6 +107,18 @@ body::before {
   gap: 1rem;
 }
 
+.title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.session-title {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
 .avatar-icon {
   width: 50px;
   height: 50px;
@@ -865,8 +877,131 @@ body::before {
   color: #4caf50;
 }
 
-.file-item:last-child {
-  border-bottom: none;
+/* Session Modal Styles */
+.session-modal {
+  max-width: 600px;
+  width: 90vw;
+  max-height: 80vh;
+}
+
+.session-actions {
+  margin-bottom: 1.5rem;
+}
+
+.new-session-btn {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.session-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.session-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.session-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.session-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border-radius: 10px;
+}
+
+.session-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.session-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.session-item.active {
+  background: rgba(120, 119, 198, 0.2);
+  border-color: rgba(120, 119, 198, 0.5);
+}
+
+.session-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.session-title {
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-preview {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.session-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.session-actions-mini {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff6b6b;
+}
+
+.empty-sessions {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-sessions p {
+  font-size: 1rem;
 }
 
 /* Responsive Design */
