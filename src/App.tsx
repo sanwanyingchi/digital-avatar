@@ -60,12 +60,15 @@ function App() {
       timestamp: new Date()
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    // 先添加用户消息到界面
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
     setIsTyping(true);
 
     try {
+      // 传递完整的对话历史给API
       const response = await callGeminiAPI(
-        [...messages, userMessage],
+        newMessages,
         settings.apiKey,
         settings.systemPrompt,
         uploadedFiles
@@ -78,6 +81,7 @@ function App() {
         timestamp: new Date()
       };
 
+      // 添加AI回复到对话历史
       setMessages(prev => [...prev, avatarMessage]);
     } catch (error) {
       console.error('Error calling Gemini API:', error);
